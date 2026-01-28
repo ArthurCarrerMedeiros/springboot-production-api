@@ -1,0 +1,6 @@
+# JWT Configuration
+app:
+  jwt:
+    # Generate with: openssl rand -base64 32
+    secret: ${JWT_SECRET:dGhpc0lzQVNlY3VyZUtleUZvckRldmVsb3BtZW50T25seQ==}
+    expiration-minutes: ${JWT_EXPIRATION_MINUTES:60}
