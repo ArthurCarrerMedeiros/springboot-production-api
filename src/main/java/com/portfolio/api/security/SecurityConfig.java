@@ -47,7 +47,7 @@ public class SecurityConfig {
                         // Public endpoints
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers("/swagger-ui/**", "/swagger-ui.html", "/v3/api-docs/**").permitAll()
-                        .requestMatchers("/actuator/health", "/actuator/info").permitAll()
+                        .requestMatchers("/actuator/health/**", "/actuator/info").permitAll()
                         // Task endpoints - GET for authenticated, POST/PUT/PATCH/DELETE for ADMIN
                         .requestMatchers(HttpMethod.GET, "/api/v1/tasks/**").authenticated()
                         .requestMatchers(HttpMethod.POST, "/api/v1/tasks/**").hasRole("ADMIN")
