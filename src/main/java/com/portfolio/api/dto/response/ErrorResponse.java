@@ -1,4 +1,4 @@
-package com.portfolio.api.exception;
+package com.portfolio.api.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

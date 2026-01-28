@@ -1,5 +1,7 @@
 package com.portfolio.api.exception;
 
+import com.portfolio.api.dto.response.ErrorResponse;
+import com.portfolio.api.dto.response.ValidationError;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +15,7 @@ import java.util.List;
 
 @Slf4j
 @RestControllerAdvice
-public class ApiExceptionHandler {
+public class GlobalExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleResourceNotFoundException(
