@@ -1,0 +1,25 @@
+# External API Configuration
+app:
+  external-api:
+    base-url: ${EXTERNAL_API_URL:https://httpbin.org}
+    timeout-seconds: ${EXTERNAL_API_TIMEOUT_SECONDS:3}
+
+# Resilience4j Configuration
+resilience4j:
+  circuitbreaker:
+    instances:
+      externalApi:
+        sliding-window-size: 10
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 30s
+        permitted-number-of-calls-in-half-open-state: 3
+        register-health-indicator: true
+  retry:
+    instances:
+      externalApi:
+        max-attempts: 2
+        wait-duration: 1s
+        retry-exceptions:
+          - java.util.concurrent.TimeoutException
+          - java.io.IOException
+          - org.springframework.web.reactive.function.client.WebClientRequestException
